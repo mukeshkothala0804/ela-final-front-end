@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.482);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.224);
+  z-index: 1000;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.header.hide {
+  transform: translateY(-100%); /* Move the header up off the screen */
+}
+
+
+
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Logo image with bounce animation */
+.logo img {
+  width: 150px; /* Adjust this based on your design */
+  height: auto;
+  animation: bounce 2s infinite; /* Apply the bounce animation */
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 120px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 450px) {
+  .logo img {
+    width: 120px; /* Adjust for mobile view */
+  }
+}
+
+
+/* Styling the containers (nav-item) around each navigation element */
+.nav-item {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: #1b707992;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-item a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background-color: #dfe3e6;
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.nav-item a:hover {
+  color: #1b707992;
+}
+
+/* For mobile view */
+@media (max-width: 768px) {
+  .nav-item {
+    display: block; /* Make each item block-level in mobile view */
+    margin: 0.5rem 0;
+  }
+}
+
+.menu-btn {
+  display: none; /* Hidden by default */
+  font-size: 2rem;
+  cursor: pointer;
+  color: #1b707992;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Hide the navbar by default on small screens */
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+  }
+
+  .navbar a {
+    padding: 1rem;
+    display: blocK;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .menu-btn {
+    display: block; /* Show the menu button on mobile view */
+  }
+
+  .navbar.active {
+    display: flex; /* Show the navbar when active */
+  }
+}
+
+@media (max-width: 450px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+.parallax {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow: hidden; /* Ensure no overflow */
+}
+
+.parallax .content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 1rem;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.parallax .fade-in {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.story {
+  padding: 6rem 2rem;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.service-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icon-box {
+  width: 150px;
+  margin: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.icon-box i {
+  font-size: 3rem;
+  color: #1b707992;
+}
+
+.icon-box:hover {
+  transform: scale(1.1);
+}
+
+
+.contact-us {
+  background-color: #f8f8f8;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.container-box {
+  background-color: #fff; /* White background for the box */
+  padding: 2rem;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  max-width: 700px; /* Limit the container width */
+  margin: 0 auto; /* Center the container */
+}
+
+.contact-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-us .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-us label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.contact-us input, .contact-us textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-us textarea {
+  resize: vertical;
+}
+
+.contact-us .btn {
+  background-color: #1b707992;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-us .btn:hover {
+  background-color: #1b707992;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .contact-us {
+    padding: 3rem 1rem;
+  }
+  
+  .container-box {
+    padding: 1.5rem;
+  }
+  
+  .contact-us h2 {
+    font-size: 2rem;
+  }
+  
+  .contact-us input, .contact-us textarea {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+.footer {
+  background: #1b6f79;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer .socials a {
+  color: #fff;
+  margin: 0 1rem;
+  transition: color 0.3s;
+}
+
+.footer .socials a:hover {
+  color: #1d82d4;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-20px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+      font-size: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo {
+      font-size: 1.5rem;
+  }
+}
